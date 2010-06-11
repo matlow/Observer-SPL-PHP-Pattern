@@ -1,0 +1,4 @@
+This project is related to http://julien-pauli.developpez.com/tutoriels/php/observer-spl/
+It demonstrates the use of an Observer/Subject pattern in modern PHP programming using the error handler as an example
+
+This project is aimed for PHP training sessions and is not designed to be used as a production code as-is.

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./testBootstrap.php" colors="true">
+    <testsuites>
+	    <testsuite name="Observer-SPL-PHP-Pattern test suite">
+	        <directory>./Listeners</directory>
+	        <file>./ErrorHandlerTest.php</file>
+	    </testsuite>
+    </testsuites>
+    
+    <groups>
+        <exclude>
+            <group>disable</group>
+        </exclude>
+    </groups>
+</phpunit>
