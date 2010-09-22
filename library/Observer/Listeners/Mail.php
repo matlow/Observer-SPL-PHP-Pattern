@@ -63,36 +63,36 @@ class Mail implements Pattern\Observer
      * 
      * @var Mail\Adapter\Adapter
      */
-	protected $_adapter;
-	
-	const SUBJECT = 'error form errorhandler';
+    protected $_adapter;
+    
+    const SUBJECT = 'error form errorhandler';
 
-	/**
-	 * 
-	 * @param Mail\Adapter\Adapter $mail
-	 */
-	public function __construct(Mail\Adapter\Adapter $mail)
-	{
-	    $this->_adapter = $mail;
-	}
+    /**
+     * 
+     * @param Mail\Adapter\Adapter $mail
+     */
+    public function __construct(Mail\Adapter\Adapter $mail)
+    {
+        $this->_adapter = $mail;
+    }
 
-	/**
-	 * Observer
-	 * 
-	 * @param Pattern\Subject $errorHandler
-	 */
-	public function update(Pattern\Subject $errorHandler)
-	{
-		$this->_adapter->send(self::SUBJECT, $errorHandler->getError());
-	}
-	
-	/**
-	 * Observer
-	 * 
-	 * @return string
-	 */
-	public function __toString()
-	{
-	    return sprintf("%s uses a '%s' Adapter", __CLASS__, get_class($this->_adapter));
-	}
+    /**
+     * Observer
+     * 
+     * @param Pattern\Subject $errorHandler
+     */
+    public function update(Pattern\Subject $errorHandler)
+    {
+        $this->_adapter->send(self::SUBJECT, $errorHandler->getError());
+    }
+    
+    /**
+     * Observer
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf("%s uses a '%s' Adapter", __CLASS__, get_class($this->_adapter));
+    }
 }

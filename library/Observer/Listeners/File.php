@@ -62,41 +62,41 @@ class File implements Pattern\Observer
      * 
      * @var resource
      */
-	protected $_fp;
-	
-	/**
-	 * File path pointer points to
-	 * 
-	 * @var string
-	 */
-	protected $_filePath;
+    protected $_fp;
+    
+    /**
+     * File path pointer points to
+     * 
+     * @var string
+     */
+    protected $_filePath;
 
-	/**
-	 * @param string $filepath
-	 */
-	public function __construct($filepath)
-	{
+    /**
+     * @param string $filepath
+     */
+    public function __construct($filepath)
+    {
        $this->_filePath = $filepath;
-	   $this->_fp       = new \SplFileObject($filepath, 'a+'); 
-	}
+       $this->_fp       = new \SplFileObject($filepath, 'a+'); 
+    }
 
-	/**
-	 * Observer
-	 * 
-	 * @param Pattern\Subject $errorHandler
-	 */
-	public function update(Pattern\Subject $errorHandler)
-	{
-		$this->_fp->fwrite($errorHandler->getError() . PHP_EOL);
-	}
-	
-	/**
-	 * Observer
-	 * 
-	 * @return string
-	 */
-	public function __toString()
-	{
-	    return sprintf("%s writes in '%s'", __CLASS__, $this->_filePath);
-	}
+    /**
+     * Observer
+     * 
+     * @param Pattern\Subject $errorHandler
+     */
+    public function update(Pattern\Subject $errorHandler)
+    {
+        $this->_fp->fwrite($errorHandler->getError() . PHP_EOL);
+    }
+    
+    /**
+     * Observer
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf("%s writes in '%s'", __CLASS__, $this->_filePath);
+    }
 }
