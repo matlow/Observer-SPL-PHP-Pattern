@@ -60,8 +60,8 @@ class MailFunction extends Adapter
      * @param string $subject
      * @param string $error
      */
-	public function send($subject, $error)
-	{
-	    mail($subject, $error);
-	}
+    public function send($subject, $error)
+    {
+        mail($subject, $error);
+    }
 }

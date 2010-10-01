@@ -60,33 +60,33 @@ abstract class Adapter
      * email to:
      * @var string
      */
-	protected $_to;
-	
-	/**
-	 * Global send() method to be redefined
-	 * 
-	 * @param string $subject
-	 * @param string $message
-	 */
-	abstract public function send($subject, $message);
-	
-	/**
-	 * Implementation choice : no chance
-	 * to overwrite email validation
-	 * 
-	 * @param string $to
-	 */
-	final public function __construct($to)
-	{
-	   	$this->_to = (string)$to;
-		if(filter_var($this->_to, FILTER_VALIDATE_EMAIL) === false) {
-			throw new \InvalidArgumentException('Invalid Email address');
-		}
-		$this->_init();
-	}
-	
-	/**
-	 * constructor hook
-	 */
-	protected function _init() { }
+     protected $_to;
+
+    /**
+     * Global send() method to be redefined
+     * 
+     * @param string $subject
+     * @param string $message
+     */
+    abstract public function send($subject, $message);
+
+    /**
+     * Implementation choice : no chance
+     * to overwrite email validation
+     * 
+     * @param string $to
+     */
+    final public function __construct($to)
+    {
+       	$this->_to = (string)$to;
+        if(filter_var($this->_to, FILTER_VALIDATE_EMAIL) === false) {
+            throw new \InvalidArgumentException('Invalid Email address');
+        }
+        $this->_init();
+    }
+    
+    /**
+     * constructor hook
+     */
+    protected function _init() { }
 }

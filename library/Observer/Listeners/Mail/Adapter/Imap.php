@@ -62,7 +62,7 @@ class Imap extends Adapter
      * @var resource
      */
     protected $_imap;
-    
+
     /**
      * Very simple imap implementation
      * just for example
@@ -70,21 +70,21 @@ class Imap extends Adapter
      * @param string $to
      * @param string $mailbox
      */
-	public function __construct($to, $mailbox)
-	{
-	    if (!function_exists('imap_open')) {
-	        throw new \DomainException('imap extension not loaded');
-	    }
-	    parent::__construct($to);
-	    $this->_imap = imap_open($mailbox);
-	}
-	
-	/**
-	 * @param string $subject
-	 * @param string $error
-	 */
-	public function send($subject, $error)
-	{
-	    imap_mail($subject, $error);
-	}
+    public function __construct($to, $mailbox)
+    {
+        if (!function_exists('imap_open')) {
+            throw new \DomainException('imap extension not loaded');
+        }
+        parent::__construct($to);
+        $this->_imap = imap_open($mailbox);
+    }
+
+    /**
+     * @param string $subject
+     * @param string $error
+     */
+    public function send($subject, $error)
+    {
+        imap_mail($subject, $error);
+    }
 }
