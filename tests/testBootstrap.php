@@ -1,5 +1,6 @@
 <?php
-spl_autoload_register(function ($class) { require_once str_replace("\\", "/", $class) . '.php'; }, true, true);
+spl_autoload_register(function ($class) { $file = str_replace(array('_',"\\"), "/", ltrim($class, '\\')) . '.php';
+  if (!@fopen($file, 'r', true)) { return;} require_once $file;}, true);
 define ('LIB_PATH', dirname(__DIR__) . '/library');
 define ('_FILES_PATH', __DIR__ . '/_files');
 

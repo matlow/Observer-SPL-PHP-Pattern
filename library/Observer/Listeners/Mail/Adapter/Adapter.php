@@ -78,7 +78,7 @@ abstract class Adapter
      */
     final public function __construct($to)
     {
-       	$this->_to = (string)$to;
+        $this->_to = (string)$to;
         if(filter_var($this->_to, FILTER_VALIDATE_EMAIL) === false) {
             throw new \InvalidArgumentException('Invalid Email address');
         }

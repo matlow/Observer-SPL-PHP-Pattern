@@ -334,7 +334,7 @@ class ErrorHandler implements Pattern\Subject, \IteratorAggregate, \Countable
     public function __call($funct, $args)
     {
         if (preg_match('#(?P<prefix>at|de)tach(?P<listener>\w+)#', $funct, $matches)) {
-            $meth = $matches['prefix'] . 'tach';
+            $meth     = $matches['prefix'] . 'tach';
             $listener = ucfirst(strtolower($matches['listener']));
             return $this->$meth(self::factory($listener, $args));
         }

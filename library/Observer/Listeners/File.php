@@ -76,8 +76,8 @@ class File implements Pattern\Observer
      */
     public function __construct($filepath)
     {
-       $this->_filePath = $filepath;
-       $this->_fp       = new \SplFileObject($filepath, 'a+'); 
+        $this->_filePath = $filepath;
+        $this->_fp       = new \SplFileObject($filepath, 'a+'); 
     }
 
     /**

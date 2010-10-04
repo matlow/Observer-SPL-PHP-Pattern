@@ -4,6 +4,8 @@ use Observer\Listeners\Mock;
 
 class ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
+    protected $handler;
+    
     public function setUp()
     {
         $this->handler = ErrorHandler::resetInstance(true); 
@@ -53,9 +55,9 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
     {
         $this->handler->setClearErrorAfterSending(true);
         $this->_generateError();
-        $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_BOOL, $this->handler->getError());
+        $this->assertType('bool', $this->handler->getError());
         $this->handler->setClearErrorAfterSending(false);
         $this->_generateError();
-        $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_STRING, $this->handler->getError());
+        $this->assertType('string', $this->handler->getError());
     }
 }
