@@ -129,6 +129,7 @@ class ErrorHandler implements Pattern\Subject, \IteratorAggregate, \Countable
      * 
      * @param string $listener
      * @param array $args
+     * @return object
      */
     public static function factory($listener, array $args = array())
     {
@@ -148,6 +149,7 @@ class ErrorHandler implements Pattern\Subject, \IteratorAggregate, \Countable
      * @param string $errstr
      * @param string $errfile
      * @param int $errline
+     * @return bool
      */
     public function error($errno, $errstr, $errfile, $errline)
     {
@@ -291,7 +293,7 @@ class ErrorHandler implements Pattern\Subject, \IteratorAggregate, \Countable
         foreach ($this as $observer) {
             try {
                 $observer->update($this);
-            } catch(Exception $e) {
+            } catch(\Exception $e) {
                 // we choose to exit here
                 exit($e->getMessage());
             }

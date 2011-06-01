@@ -65,7 +65,7 @@ class Mail implements Pattern\Observer
      */
     protected $_adapter;
     
-    const SUBJECT = 'error form errorhandler';
+    const SUBJECT = 'error from errorhandler';
 
     /**
      * 
